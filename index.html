@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>AI BETA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <main class="asistan-konteyner">
+  <header class="ust-bilgi">
+  <span class="marka">CodePen // AI v1.0</span>
+  <span class="baglanti-durumu"><i class="nokta"></i> Çevrimiçi</span>
+</header>
+
+  <div class="kure-alani">
+    <canvas id="dalgaCanvas"></canvas>
+    <div class="kure-merkez" id="asistanKure"></div>
+  </div>
+
+  <h1 id="durumMetni">Sistem Uykuda</h1>
+  
+  <div class="kontrol-paneli">
+    <button id="btnAc" class="btn btn-ac">Sistemleri Çalıştır</button>
+    <button id="btnKapat" class="btn btn-kapat">Sistemleri Kapat</button>
+  </div>
+
+  <div class="konsol" id="konsolEkran">
+    <p class="sistem-mesaj">[Sistem] Başlatılmaya hazır...</p>
+  </div>
+
+  <link href="https://googleapis.com" rel="stylesheet">
+
+  <form class="mesaj-formu" id="mesajFormu">
+    <input type="text" id="metinGirdisi" placeholder="Komut yazın veya konuşun..." autocomplete="off">
+    <button type="submit" class="btn btn-gonder">Gönder</button>
+  </form>
+<div class="kontrol-paneli">
+  <button id="btnAc" class="btn btn-ac">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+    Başlat
+  </button>
+  <button id="btnKapat" class="btn btn-kapat">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+    Durdur
+  </button>
+</div>
+
+</main>
+
+    <script src="/script.js"></script>
+  </body>
+
+</html>
