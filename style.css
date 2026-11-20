@@ -1,0 +1,253 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #16181d;
+  color: #d8dee9;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.asistan-konteyner {
+  background: rgba(30, 33, 40, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  margin: auto; /* Centers vertically and horizontally */
+  padding: 2rem 1.75rem;
+}
+
+
+#durumMetni {
+  color: #e5e9f0;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.kure-alani {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dalgaCanvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Softened blue orb */
+.kure-merkez {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #7aa2f7 0%, #3d59a1 100%);
+  box-shadow: 0 0 28px rgba(122, 162, 247, 0.35);
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+/* Soothing sage-teal active orb */
+.kure-merkez.aktif {
+  background: radial-gradient(circle, #73daca 0%, #2b6cb0 100%);
+  box-shadow: 0 0 38px rgba(115, 218, 202, 0.45);
+  transform: scale(1.05);
+}
+
+.kontrol-paneli {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  display: inline-flex; 
+  align-items: center; gap: 0.45rem;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* Muted sage start button */
+.btn-ac {
+  background-color: rgba(115, 218, 202, 0.14);
+  border: 1px solid rgba(115, 218, 202, 0.5);
+  color: #73daca;
+}
+.btn-ac:hover {
+  background-color: rgba(115, 218, 202, 0.22);
+}
+
+/* Muted coral-rose stop button */
+.btn-kapat {
+  background-color: rgba(247, 118, 142, 0.14);
+  border: 1px solid rgba(247, 118, 142, 0.5);
+  color: #f7768e;
+}
+.btn-kapat:hover {
+  background-color: rgba(247, 118, 142, 0.22);
+}
+
+/* Low-glare console box */
+.konsol {
+  background-color: #1e2128;
+  border: 1px solid #2e3440;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  width: 100%;
+  height: 160px;
+  padding: 1rem;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.sistem-mesaj { 
+  color: #8892b0; 
+}
+
+.asistan-mesaj {
+  color: #e5e9f0;
+  border-left: 2px solid #73daca;
+  padding-left: 8px;
+  background: rgba(115, 218, 202, 0.05);
+  border-radius: 0 4px 4px 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.kullanici-mesaj { 
+  color: #7aa2f7; 
+  font-weight: bold; 
+}
+
+.mesaj-formu {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+#metinGirdisi {
+  flex: 1;
+  padding: 0.65rem 0.85rem;
+  background-color: #1e2128;
+  border: 1px solid #2e3440;
+  border-radius: 6px;
+  color: #d8dee9;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+#metinGirdisi:focus {
+  border-color: #7aa2f7;
+}
+
+#metinGirdisi::placeholder {
+  color: #5c677d;
+}
+
+.btn-gonder {
+  background-color: #7aa2f7;
+  border: none;
+  color: #16181d;
+  padding: 0.65rem 1.1rem;
+}
+
+.btn-gonder:hover {
+  background-color: #89b4fa;
+}
+
+@keyframes nefesAl {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 25px rgba(122, 162, 247, 0.3);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 40px rgba(122, 162, 247, 0.5);
+  }
+}
+
+.kure-merkez {
+  /* Keep your existing styles, and add: */
+  animation: nefesAl 4s ease-in-out infinite;
+  border: 2px solid rgba(255, 255, 255, 0.15); /* Subtle glass edge */
+}
+
+/* Faster, energetic pulse when active */
+.kure-merkez.aktif {
+  animation: nefesAl 1.8s ease-in-out infinite;
+  box-shadow: 0 0 45px rgba(115, 218, 202, 0.55);
+}
+
+.ust-bilgi {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+  border-bottom: 1px solid #2e3440;
+  padding-bottom: 0.75rem;
+}
+
+.baglanti-durumu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9ca3af;
+}
+
+.nokta {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #73daca;
+  box-shadow: 0 0 8px #73daca;
+}
+
+@keyframes mesajGeldi {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.konsol p {
+  animation: mesajGeldi 0.25s ease forwards;
+}
+
+.zaman {
+  color: #565f89;
+  font-size: 0.78rem;
+  margin-right: 4px;
+}
+
+kbd {
+  background: #24283b;
+  border: 1px solid #3b4261;
+  border-radius: 4px;
+  color: #787c99;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+}
